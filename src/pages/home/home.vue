@@ -2,7 +2,6 @@
   <div>
     <!-- 导航 -->
     <head-top></head-top>
-
     <!-- 轮播图 -->
     <div class="slider">
       <div class="slider_inner">
@@ -13,30 +12,17 @@
         </el-carousel>
       </div>
     </div>
-
     <!-- 热映楼层 -->
     <div class="row_box">
       <div class="hd">
         <h2 class="title">院线热映</h2>
-
         <!-- 分页切换 -->
         <page-small></page-small>
       </div>
-
       <!-- 视频播放 -->
       <div class="hd">
         <div class="video">
-          <video-player
-            class="video-player-box"
-            ref="videoPlayer"
-            :options="playerOptions"
-            :playsinline="true"
-            customEventName="customstatechangedeventname"
-            @play="onPlayerPlay($event)"
-            @pause="onPlayerPause($event)"
-            @statechanged="playerStateChanged($event)"
-            @ready="playerReadied"
-          ></video-player>
+          <vue-video-player></vue-video-player>
         </div>
         <div class="figure">
           <div class="figure_default">
@@ -54,12 +40,10 @@
         </div>
       </div>
     </div>
-
     <!-- 首播楼层 -->
     <div class="row_box" v-for="item in 3" :key="item">
       <div class="hd">
         <h2 class="title">首播影院</h2>
-
         <!-- 分页切换 -->
         <page-small></page-small>
       </div>
@@ -69,8 +53,9 @@
             <div class="figure_item" v-for="item in 16" :key="item">
               <a href class="figure_a">
                 <img src="../../assets/images/220.jpeg" alt class="figure_img">
-                <div class="figure_caption">01:33</div>
+                <div class="figure_caption">01:55:11</div>
                 <div class="figure_score">7.0</div>
+                <img src="../../assets/images/mark_1.png" alt="" class="mark">
               </a>
               <div class="figure_detail">
                 <a href class="figure_title">我的英雄学院·终极预告</a>
@@ -81,71 +66,30 @@
         </div>
       </div>
     </div>
+    <!-- 底部 -->
+    <foot-buttom></foot-buttom>
   </div>
 </template>
 
 <script>
 import headTop from "../../components/header/hade";
+import footButtom from "../../components/footer/foot";
 import pageSmall from "../../components/common/page/page";
+import vueVideoPlayer from "../../components/common/video/video";
 import defaultImg1 from "../../assets/images/11.jpeg";
 import defaultImg2 from "../../assets/images/111.jpeg";
 import defaultImg3 from "../../assets/images/1111.jpeg";
 export default {
   data() {
     return {
-      slider_list: [defaultImg1, defaultImg2, defaultImg3],
-      playerOptions: {
-        // videojs options
-        muted: true,
-        language: "zh-CN",
-        // aspectRatio: "16:9",
-        fluid: true,
-        playbackRates: [0.7, 1.0, 1.5, 2.0],
-        sources: [
-          {
-            type: "video/mp4",
-            src:
-              "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
-          }
-        ],
-        poster: defaultImg1,
-        notSupportedMessage: "此视频暂无法播放，请稍后再试"
-      }
+      slider_list: [defaultImg1, defaultImg2, defaultImg3]
     };
-  },
-  mounted() {
-    console.log("this is current player instance object", this.player);
-  },
-  computed: {
-    player() {
-      return this.$refs.videoPlayer.player;
-    }
-  },
-  methods: {
-    // listen event
-    onPlayerPlay(player) {
-      // console.log('player play!', player)
-    },
-    onPlayerPause(player) {
-      // console.log('player pause!', player)
-    },
-    // ...player event
-
-    // or listen state event
-    playerStateChanged(playerCurrentState) {
-      // console.log('player current update state', playerCurrentState)
-    },
-
-    // player is ready
-    playerReadied(player) {
-      console.log("the player is readied", player);
-      // you can use it to do something...
-      // player.[methods]
-    }
   },
   components: {
     headTop,
-    pageSmall
+    footButtom,
+    pageSmall,
+    vueVideoPlayer
   }
 };
 </script>
@@ -195,6 +139,8 @@ export default {
     float: left;
     overflow: hidden;
     background-color: #000;
+    padding-top: 12px;
+    box-sizing: border-box;
   }
   .figure_md {
     width: 1710px;
@@ -283,6 +229,12 @@ export default {
         font-weight: 400;
         line-height: 28px;
         color: #ff5c38;
+      }
+      .mark {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        pointer-events: none;
       }
     }
     .figure_detail {

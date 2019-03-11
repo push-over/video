@@ -29,11 +29,27 @@
             <input type="text" class="search_input" placeholder="海王" value="海王">
           </div>
           <button class="search_btn">
-            <img class="search_icon" src="../../assets/images/search.png" alt>
+            <svg class="search_icon" viewBox="0 0 18 18" width="18" height="18">
+              <path
+                d="M4.5 4.5c-1.9 1.9-1.9 5.1 0 7.1s5.1 1.9 7.1 0 1.9-5.1 0-7.1-5.2-2-7.1 0zm10.8 12.2l-3.1-3.1c-2.7 2-6.6 1.9-9.1-.6C.3 10.2.3 5.8 3 3 5.7.3 10.2.3 12.9 3c2.5 2.5 2.7 6.4.6 9.1l3.1 3.1c.4.4.4 1 0 1.4-.3.5-.9.5-1.3.1z"
+                fill="currentColor"
+              ></path>
+            </svg>
             <span>全网搜</span>
           </button>
           <a href class="search_hot">
-            <img class="hot_icon" src="../../assets/images/hot.png" alt>
+            <svg class="hot_icon" width="12" height="15" viewBox="0 0 12 15">
+              <linearGradient x1="41.309%" y1="32.314%" x2="71.734%" y2="100%" id="__gradient_fire">
+                <stop stop-color="#FF9630" offset="0%"></stop>
+                <stop stop-color="#FF9630" offset="0%"></stop>
+                <stop stop-color="#FF1E1E" offset="100%"></stop>
+              </linearGradient>
+              <path
+                d="M6.634 17C2.539 14.21 1.905 10.843 4.73 6.898 6.307 4.845 7.253 4.053 7.253 2c.353.183 5.134 2.569 4.024 7.5 1.01-.505 1.684-1.659 2.025-3.463 2.28 3.767 2.264 6.9-.051 9.4-.489.528-1.211 1.05-1.873 1.563-1.33-.625-2.932-1.875-3.573-5.625C6.524 12.833 6.133 14.708 6.634 17z"
+                fill="url(#__gradient_fire)"
+                transform="translate(-3 -2)"
+              ></path>
+            </svg>
             <span class="hot_span">热搜榜</span>
           </a>
         </div>
@@ -46,17 +62,52 @@
           </div>
           <div class="quick_item">
             <a href class="quick_link">
-              <img class="quick_icon" src="../../assets/images/history.png" alt>
+              <svg class="quick_icon" viewBox="0 0 26 26" width="26" height="26">
+                <circle cx="13" cy="13" r="11" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                <path
+                  d="M14 13h3c.6 0 1 .4 1 1s-.4 1-1 1h-4c-.6 0-1-.4-1-1V8c0-.6.4-1 1-1s1 .4 1 1v5z"
+                  fill="currentColor"
+                ></path>
+              </svg>
             </a>
           </div>
           <div class="quick_item">
             <a href class="quick_link">
-              <img class="quick_icon" src="../../assets/images/upload.png" alt>
+              <svg class="quick_icon" viewBox="0 0 26 26" width="26" height="26">
+                <path d="M12 3h2v11c0 .6-.4 1-1 1s-1-.4-1-1V3z" fill="currentColor"></path>
+                <path
+                  d="M9 7l4-4M17 7l-4-4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="square"
+                ></path>
+                <path
+                  d="M23 13v7c0 2.2-1.8 4-4 4H7c-2.2 0-4-1.8-4-4v-7"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
             </a>
           </div>
           <div class="quick_item">
             <a href class="quick_link">
-              <img class="quick_icon" src="../../assets/images/client.png" alt>
+              <svg class="quick_icon" viewBox="0 0 26 26" width="26" height="26">
+                <path
+                  d="M15 18v2H7c-2.2 0-4-1.8-4-4V7c0-2.2 1.8-4 4-4h12c2.2 0 4 1.8 4 4v6h-2V7c0-1.1-.9-2-2-2H7c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h8zm0 5v2H9v-2h6zM21 23h2v-6c0-.6-.4-1-1-1s-1 .4-1 1v6z"
+                  fill="currentColor"
+                ></path>
+                <path
+                  d="M19 21l3 2M25 21l-3 2"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="square"
+                ></path>
+              </svg>
             </a>
           </div>
           <div class="quick_item quick_user">
@@ -229,7 +280,7 @@ export default {};
         }
         .hot_span {
           position: relative;
-          top: 2px;
+          top: 3px;
         }
       }
     }
@@ -247,8 +298,12 @@ export default {};
           height: 26px;
           padding: 0;
           z-index: 11;
+          color: #999;
           text-decoration: none;
           cursor: pointer;
+        }
+        .quick_link:hover {
+          color: #666;
         }
         .quick_icon {
           display: block;
