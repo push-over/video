@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- 导航 -->
+    <!-- head组件 -->
     <head-top></head-top>
-    <!-- 轮播图 -->
+    <!-- 轮播图开始 -->
     <div class="slider">
       <div class="slider_inner">
         <el-carousel :interval="5000" height="500px">
@@ -12,20 +12,22 @@
         </el-carousel>
       </div>
     </div>
-    <!-- 热映楼层 -->
+    <!-- 轮播图结束 -->
+    <!-- 楼层开始 -->
     <div class="row_box">
       <div class="hd">
         <h2 class="title">院线热映</h2>
-        <!-- 分页切换 -->
+        <!-- 分页组件 -->
         <page-small></page-small>
       </div>
-      <!-- 视频播放 -->
       <div class="hd">
         <div class="video">
+          <!-- 播放组件 -->
           <vue-video-player></vue-video-player>
         </div>
         <div class="figure">
           <div class="figure_default">
+            <!-- 影片封面开始 -->
             <div class="figure_item" v-for="item in 10" :key="item">
               <a href class="figure_a">
                 <img src="../../assets/images/0.jpeg" alt class="figure_img">
@@ -36,37 +38,42 @@
                 <div class="figure_desc">师徒联手对敌让人泪目</div>
               </div>
             </div>
+            <!-- 影片封面结束 -->
           </div>
         </div>
       </div>
     </div>
-    <!-- 首播楼层 -->
+    <!-- 楼层结束 -->
+    <!-- 楼层开始 -->
     <div class="row_box" v-for="item in 3" :key="item">
       <div class="hd">
         <h2 class="title">首播影院</h2>
-        <!-- 分页切换 -->
+        <!-- 分页组件 -->
         <page-small></page-small>
       </div>
       <div class="hd">
         <div class="figure_md">
           <div class="figure_default">
+            <!-- 影片封面开始 -->
             <div class="figure_item" v-for="item in 16" :key="item">
               <a href class="figure_a">
                 <img src="../../assets/images/220.jpeg" alt class="figure_img">
                 <div class="figure_caption">01:55:11</div>
                 <div class="figure_score">7.0</div>
-                <img src="../../assets/images/mark_1.png" alt="" class="mark">
+                <img src="../../assets/images/mark_1.png" alt class="mark">
               </a>
               <div class="figure_detail">
                 <a href class="figure_title">我的英雄学院·终极预告</a>
                 <div class="figure_desc">师徒联手对敌让人泪目</div>
               </div>
             </div>
+            <!-- 影片封面结束 -->
           </div>
         </div>
       </div>
     </div>
-    <!-- 底部 -->
+    <!-- 楼层结束 -->
+    <!-- foot组件 -->
     <foot-buttom></foot-buttom>
   </div>
 </template>

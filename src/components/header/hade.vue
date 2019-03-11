@@ -3,7 +3,7 @@
     <div class="head_placeholder"></div>
     <div class="head">
       <div class="head_inner">
-        <!-- 分类标s -->
+        <!-- 菜单开始 -->
         <h1 class="site_logo">
           <a href="https://baidu.com" class="link_logo">电影天堂</a>
         </h1>
@@ -23,7 +23,8 @@
           <a class="head_nav" href="体育">体育</a>
           <a class="head_nav" href="全部">全部</a>
         </div>
-        <!-- 搜索框 -->
+        <!-- 菜单结束 -->
+        <!-- 搜索开始 -->
         <div class="head_search">
           <div class="search_keywords">
             <input type="text" class="search_input" placeholder="海王" value="海王">
@@ -52,8 +53,30 @@
             </svg>
             <span class="hot_span">热搜榜</span>
           </a>
+          <!-- 隐藏热门搜索开始 -->
+          <div class="smartbox">
+            <div class="smartbox_hot">
+              <div class="smartbox_head">
+                <div class="smartbox_title">热门搜索</div>
+              </div>
+              <div class="smartbox_body">
+                <div
+                  :class="'smartbox_item smartbox_item_'+key"
+                  v-for="(item,key) in 10"
+                  :key="key"
+                >
+                  <a href class="smartbox_link">
+                    <span class="smartbox_num">{{key + 1}}</span>
+                    <span class="smartbox_name">王牌对王牌 第4季</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 隐藏热门搜索结束 -->
         </div>
-        <!-- 快捷中心 -->
+        <!-- 搜索结束 -->
+        <!-- 快捷入口开始 -->
         <div class="head_quick">
           <div class="quick_item">
             <a href class="quick_link">
@@ -116,6 +139,7 @@
             </a>
           </div>
         </div>
+        <!-- 快捷入口结束 -->
       </div>
     </div>
     <div class="head_subnav">
@@ -282,6 +306,82 @@ export default {};
           position: relative;
           top: 3px;
         }
+      }
+      .smartbox {
+        right: 15px;
+        left: 15px;
+        width: auto;
+        min-width: 248px;
+        z-index: 10;
+        position: absolute;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.98);
+        background-color: #fff;
+        box-shadow: 0 28px 50px rgba(25, 24, 40, 0.35);
+      }
+      .smartbox_hot {
+        padding-bottom: 10px;
+      }
+      .smartbox_head {
+        position: relative;
+        margin: 10px 10px 5px;
+        overflow: hidden;
+        color: #999;
+        font-size: 14px;
+      }
+      .smartbox_item {
+        display: block;
+        margin: 0 5px;
+      }
+      .smartbox_item:hover {
+        background-color: #eee;
+      }
+      .smartbox_item_0 {
+        .smartbox_num {
+          background-color: #ff183e;
+        }
+      }
+      .smartbox_item_1 {
+        .smartbox_num {
+          background-color: #ff5c38;
+        }
+      }
+      .smartbox_item_2 {
+        .smartbox_num {
+          background-color: #ffb821;
+        }
+      }
+      .smartbox_link {
+        display: block;
+        padding: 5px;
+        overflow: hidden;
+        border-radius: 2px;
+        color: #111;
+        font-size: 14px;
+        line-height: 22px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .smartbox_num {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        margin-right: 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        text-align: center;
+        vertical-align: top;
+        background-color: #7f7f8c;
+      }
+      .smartbox_name {
+        display: inline-block;
+        max-width: 80%;
+        margin-left: 3px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: top;
+        white-space: nowrap;
       }
     }
     .head_quick {
