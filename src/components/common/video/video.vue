@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import defaultImg1 from "../../../assets/images/11.jpeg";
+import defaultImg1 from "../../../assets/images/111.jpeg";
 export default {
   data() {
     return {
@@ -28,7 +28,7 @@ export default {
           {
             type: "video/mp4",
             src:
-              "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
+              "https://mat1.gtimg.com/v/fayemeng/aquaman.mp4"
           }
         ],
         poster: defaultImg1,

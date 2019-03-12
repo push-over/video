@@ -1,5 +1,0 @@
- <svg class="svg_quick_icon svg_icon_upload" viewBox="0 0 26 26" width="26" height="26">
-            <path d="M12 3h2v11c0 .6-.4 1-1 1s-1-.4-1-1V3z" fill="currentColor"></path>
-            <path d="M9 7l4-4M17 7l-4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"></path>
-            <path d="M23 13v7c0 2.2-1.8 4-4 4H7c-2.2 0-4-1.8-4-4v-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>

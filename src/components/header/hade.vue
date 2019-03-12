@@ -5,29 +5,38 @@
       <div class="head_inner">
         <!-- 菜单开始 -->
         <h1 class="site_logo">
-          <a href="https://baidu.com" class="link_logo">电影天堂</a>
+          <router-link :to="'/home/'" class="link_logo">腾讯视频</router-link>
         </h1>
         <div class="head_menu">
-          <a class="head_nav" href="精选">精选</a>
-          <a class="head_nav" href="电视剧">电视剧</a>
-          <a class="head_nav current" data-icon="../../assets/images/0.png" href="电影">
-            <img src="../../assets/images/0.png" alt class="head_nav_icon">
-            电影
-          </a>
-          <a class="head_nav" href="综艺">综艺</a>
-          <a class="head_nav" href="动漫">动漫</a>
-          <a class="head_nav" href="少儿">少儿</a>
-          <a class="head_nav" href="纪录片">纪录片</a>
-          <a class="head_nav" href="VIP会员">VIP会员</a>
-          <a class="head_nav" href="音乐">音乐</a>
-          <a class="head_nav" href="体育">体育</a>
-          <a class="head_nav" href="全部">全部</a>
+          <router-link :to="'/home/'" class="head_nav">精选</router-link>
+          <router-link
+            :to="item.menu_url"
+            :class="{'head_nav': true, 'current': $route.path == item.menu_url}"
+            v-for="item in menu_list"
+            :key="item.menu_name"
+          >
+            <img
+              :src="item.icon_name"
+              v-if="$route.path === item.menu_url"
+              alt
+              class="head_nav_icon"
+            >
+            {{item.menu_name}}
+          </router-link>
+          <router-link :to="'/home/'" class="head_nav">全部</router-link>
         </div>
         <!-- 菜单结束 -->
         <!-- 搜索开始 -->
         <div class="head_search">
           <div class="search_keywords">
-            <input type="text" class="search_input" placeholder="海王" value="海王">
+            <input
+              type="text"
+              class="search_input"
+              placeholder="海王"
+              value="海王"
+              @focus="this.handleSearchFocus"
+              @blur="this.handleSearchBlur"
+            >
           </div>
           <button class="search_btn">
             <svg class="search_icon" viewBox="0 0 18 18" width="18" height="18">
@@ -38,7 +47,7 @@
             </svg>
             <span>全网搜</span>
           </button>
-          <a href class="search_hot">
+          <router-link :to="'/home/'" class="search_hot">
             <svg class="hot_icon" width="12" height="15" viewBox="0 0 12 15">
               <linearGradient x1="41.309%" y1="32.314%" x2="71.734%" y2="100%" id="__gradient_fire">
                 <stop stop-color="#FF9630" offset="0%"></stop>
@@ -52,9 +61,9 @@
               ></path>
             </svg>
             <span class="hot_span">热搜榜</span>
-          </a>
-          <!-- 隐藏热门搜索开始 -->
-          <div class="smartbox">
+          </router-link>
+          <!-- 热门搜索浮层开始 -->
+          <div class="smartbox" v-if="focused">
             <div class="smartbox_hot">
               <div class="smartbox_head">
                 <div class="smartbox_title">热门搜索</div>
@@ -65,26 +74,26 @@
                   v-for="(item,key) in 10"
                   :key="key"
                 >
-                  <a href class="smartbox_link">
+                  <router-link :to="'/home/'" class="smartbox_link">
                     <span class="smartbox_num">{{key + 1}}</span>
                     <span class="smartbox_name">王牌对王牌 第4季</span>
-                  </a>
+                  </router-link>
                 </div>
               </div>
             </div>
           </div>
-          <!-- 隐藏热门搜索结束 -->
+          <!-- 热门搜索浮层结束 -->
         </div>
         <!-- 搜索结束 -->
         <!-- 快捷入口开始 -->
         <div class="head_quick">
           <div class="quick_item">
-            <a href class="quick_link">
+            <router-link :to="'/home/'" class="quick_link">
               <img class="quick_icon" src="../../assets/images/vip.png" alt>
-            </a>
+            </router-link>
           </div>
           <div class="quick_item">
-            <a href class="quick_link">
+            <router-link :to="'/home/'" class="quick_link">
               <svg class="quick_icon" viewBox="0 0 26 26" width="26" height="26">
                 <circle cx="13" cy="13" r="11" fill="none" stroke="currentColor" stroke-width="2"></circle>
                 <path
@@ -92,10 +101,10 @@
                   fill="currentColor"
                 ></path>
               </svg>
-            </a>
+            </router-link>
           </div>
           <div class="quick_item">
-            <a href class="quick_link">
+            <router-link :to="'/home/'" class="quick_link">
               <svg class="quick_icon" viewBox="0 0 26 26" width="26" height="26">
                 <path d="M12 3h2v11c0 .6-.4 1-1 1s-1-.4-1-1V3z" fill="currentColor"></path>
                 <path
@@ -114,10 +123,10 @@
                   stroke-linejoin="round"
                 ></path>
               </svg>
-            </a>
+            </router-link>
           </div>
           <div class="quick_item">
-            <a href class="quick_link">
+            <router-link :to="'/home/'" class="quick_link">
               <svg class="quick_icon" viewBox="0 0 26 26" width="26" height="26">
                 <path
                   d="M15 18v2H7c-2.2 0-4-1.8-4-4V7c0-2.2 1.8-4 4-4h12c2.2 0 4 1.8 4 4v6h-2V7c0-1.1-.9-2-2-2H7c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h8zm0 5v2H9v-2h6zM21 23h2v-6c0-.6-.4-1-1-1s-1 .4-1 1v6z"
@@ -131,12 +140,27 @@
                   stroke-linecap="square"
                 ></path>
               </svg>
-            </a>
+            </router-link>
           </div>
           <div class="quick_item quick_user">
-            <a href class="quick_link">
-              <img class="quick_icon quick_user_avatar" src="../../assets/images/g.jpeg" alt>
-            </a>
+            <router-link :to="'/home/'" class="quick_link">
+              <img
+                class="quick_icon quick_user_avatar"
+                src="../../assets/images/g.jpeg"
+                @mouseenter="this.handleUserMouseenter"
+                @mouseleave="this.handleUserMouseleave"
+              >
+            </router-link>
+            <!-- 未登录浮层开始 -->
+            <el-card class="box-card" v-if="user_layer">
+              <div slot="header" class="clearfix">
+                <span>登录之后可以</span>
+              </div>
+              <div class="quick_btn">
+                <router-link :to="'/home/'" class="quick_btn_link">立即登录</router-link>
+              </div>
+            </el-card>
+            <!-- 未登录浮层结束 -->
           </div>
         </div>
         <!-- 快捷入口结束 -->
@@ -144,19 +168,27 @@
     </div>
     <div class="head_subnav">
       <div class="subnav_inner">
-        <a href class="nav_link current">电影精选</a>
-        <a href class="nav_link">院线大片</a>
-        <a href class="nav_link">网络电影</a>
-        <a href class="nav_link">内地</a>
-        <a href class="nav_link">中国香港</a>
-        <a href class="nav_link">美国</a>
-        <a href class="nav_link">动作</a>
-        <a href class="nav_link">喜剧</a>
-        <a href class="nav_link">科幻</a>
-        <a href class="nav_link">犯罪</a>
-        <a href class="nav_link">爱情</a>
-        <a href class="nav_link">独播</a>
-        <a href class="nav_link">电影片库</a>
+        <router-link :to="'/home/'" class="nav_link current">电影精选</router-link>
+        <router-link
+          :to="'/home/'"
+          class="nav_link"
+          v-for="item in subnav_list"
+          :key="item"
+        >{{item}}</router-link>
+        <router-link :to="'/home/'" class="nav_link library">
+          <svg width="17" height="17" class="svg_vstore">
+            <path
+              d="M2 2v10h10V2H2zm0-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"
+              fill="#FF5C38"
+            ></path>
+            <path d="M5 15h10V3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2h2z" fill="#FF5C38"></path>
+            <path
+              d="M6.007 4.138l3.726 2.26c.286.238.353.7.148 1.032a.698.698 0 0 1-.148.172l-3.726 2.26c-.286.238-.684.16-.888-.172C5.04 9.565 5 9.154 5 9V5c0-.408.285-1 .637-1a.58.58 0 0 1 .37.138z"
+              fill="#FFB821"
+            ></path>
+          </svg>
+          电影片库
+        </router-link>
       </div>
     </div>
     <div class="head_subnav_placeholder"></div>
@@ -164,12 +196,30 @@
 </template>
 
 <script>
-export default {};
+import { mapState, mapActions } from "vuex";
+
+export default {
+  computed: {
+    ...mapState({
+      focused: state => state.header.focused,
+      user_layer: state => state.header.user_layer,
+      menu_list: state => state.header.menu_list,
+      subnav_list: state => state.header.subnav_list
+    })
+  },
+  methods: {
+    ...mapActions("header", [
+      "handleSearchFocus",
+      "handleSearchBlur",
+      "handleUserMouseenter",
+      "handleUserMouseleave"
+    ])
+  }
+};
 </script>
 
 <style lang="less" scoped>
 .head_placeholder {
-  // position: fixed;
   display: block;
   height: 68px;
 }
@@ -405,6 +455,35 @@ export default {};
         .quick_link:hover {
           color: #666;
         }
+        .box-card {
+          color: #999;
+          font-size: 14px;
+          line-height: 26px;
+          position: absolute;
+          top: 46px;
+          right: -20px;
+          width: 396px;
+          z-index: 10;
+        }
+        .quick_btn {
+          margin: 20px auto;
+          padding-bottom: 10px;
+        }
+        .quick_btn_link {
+          display: block;
+          width: 180px;
+          height: 30px;
+          margin: 10px auto;
+          border: none;
+          border-radius: 30px;
+          background: linear-gradient(90deg, #ffb821 0, #ff5c38 45%, #ff1459);
+          background-color: #ff183e;
+          color: #fff;
+          font-size: 14px;
+          line-height: 30px;
+          text-align: center;
+          text-decoration: none;
+        }
         .quick_icon {
           display: block;
           width: 26px;
@@ -467,12 +546,22 @@ export default {};
       text-decoration: none;
       display: inline-block;
       margin: 0 30px 0 0;
-      // color: #111;
       padding: 0;
       font-size: 14px;
       letter-spacing: normal;
       line-height: 40px;
       vertical-align: top;
+    }
+    .library {
+      position: relative;
+      margin-left: 20px;
+      .svg_vstore {
+        position: absolute;
+        top: 11px;
+        left: -20px;
+        width: 17px;
+        height: 17px;
+      }
     }
     .nav_link:hover {
       color: #ff5c38;
