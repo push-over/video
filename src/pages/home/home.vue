@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!-- head组件 -->
-    <head-top id="head"></head-top>
     <!-- 轮播图开始 -->
     <div class="slider">
       <div class="slider_inner">
@@ -68,19 +66,19 @@
               @mouseout="handleVideoMouseout(key)"
               @mouseover="handleVideoMouseenter(key)"
             >
-              <a href class="figure_a">
+              <router-link :to="'/detail/'" class="figure_a">
                 <img src="../../assets/images/220.jpeg" alt class="figure_img">
                 <div class="figure_caption">01:55:11</div>
                 <div class="figure_score">7.0</div>
                 <img src="../../assets/images/mark_1.png" alt class="mark">
-              </a>
+              </router-link>
               <div class="figure_detail">
-                <a href class="figure_title">我的英雄学院·终极预告</a>
+                <router-link :to="'/detail/'" class="figure_title">我的英雄学院·终极预告</router-link>
                 <div class="figure_desc">师徒联手对敌让人泪目</div>
               </div>
               <el-card class="box-card" :body-style="{ padding: '0px' }">
                 <div class="card_video">
-                  <a href class="card_video_outlink">
+                  <router-link :to="'/detail/'" class="card_video_outlink">
                     <div class="card_a_video">
                       <video
                         width="100%"
@@ -90,10 +88,10 @@
                         src="https://mat1.gtimg.com/v/fayemeng/aquaman.mp4"
                       ></video>
                     </div>
-                  </a>
+                  </router-link>
                   <div class="card_content">
                     <div class="card_video_title">
-                      <a href class="title">命之途</a>
+                      <router-link :to="'/detail/'" class="title">命之途</router-link>
                       <span class="type">2019</span>
                       <span class="type">武侠</span>
                       <span class="type">动作</span>
@@ -123,18 +121,11 @@
       </div>
     </div>
     <!-- 楼层结束 -->
-    <!-- foot组件 -->
-    <shortcut></shortcut>
-    <foot-buttom></foot-buttom>
   </div>
 </template>
 
 <script>
-import headTop from "../../components/header/hade";
-import footButtom from "../../components/footer/foot";
 import pageSmall from "../../components/common/page/page";
-// import vueVideoPlayer from "../../components/common/video/video";
-import shortcut from "../../components/common/shortcut/shortcut";
 import defaultImg1 from "../../assets/images/11.jpeg";
 import defaultImg2 from "../../assets/images/111.jpeg";
 import defaultImg3 from "../../assets/images/1111.jpeg";
@@ -153,11 +144,7 @@ export default {
     }
   },
   components: {
-    headTop,
-    footButtom,
-    pageSmall,
-    // vueVideoPlayer,
-    shortcut
+    pageSmall
   }
 };
 </script>
@@ -236,6 +223,7 @@ export default {
       // overflow: hidden;
     }
     .figure_item {
+      float: left;
       display: inline-block;
       position: relative;
       margin: 0 18px 40px 0;
@@ -245,7 +233,6 @@ export default {
       letter-spacing: normal;
       vertical-align: top;
       width: 198px;
-      float: left;
     }
     .figure_video:hover .box-card {
       z-index: 11;
@@ -264,10 +251,10 @@ export default {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        vertical-align: bottom;
         border-radius: 4px;
         background: #f8f8f8;
         background-color: rgba(236, 236, 236, 0.1);
-        vertical-align: bottom;
       }
       .fi:hover {
         box-shadow: 0 4px 8px rgba(40, 40, 40, 0.2);
