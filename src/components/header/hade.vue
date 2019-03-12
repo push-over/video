@@ -166,16 +166,17 @@
         <!-- 快捷入口结束 -->
       </div>
     </div>
+    <!-- 二级菜单开始 -->
     <div class="head_subnav">
       <div class="subnav_inner">
-        <router-link :to="'/home/'" class="nav_link current">电影精选</router-link>
+        <router-link :to="'/movie/'" class="nav_link current">电影精选</router-link>
         <router-link
-          :to="'/home/'"
+          :to="'/movie/'"
           class="nav_link"
           v-for="item in subnav_list"
           :key="item"
         >{{item}}</router-link>
-        <router-link :to="'/home/'" class="nav_link library">
+        <router-link :to="'/movie/'" class="nav_link library">
           <svg width="17" height="17" class="svg_vstore">
             <path
               d="M2 2v10h10V2H2zm0-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"
@@ -191,6 +192,7 @@
         </router-link>
       </div>
     </div>
+    <!-- 二级菜单结束 -->
     <div class="head_subnav_placeholder"></div>
   </div>
 </template>
@@ -223,13 +225,19 @@ export default {
   display: block;
   height: 68px;
 }
-
 .head {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+.head1 {
+  background-color: #000;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+.head,
+.head1 {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #fff;
-  background-color: rgba(255, 255, 255, 0.95);
   width: 100%;
   min-width: 1000px;
   height: 68px;

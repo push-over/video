@@ -14,48 +14,46 @@ const state = {
     focused: false,
     user_layer: false,
     menu_list: [{
-            menu_url: "/home/tv",
+            menu_url: "/tv",
             icon_name: tv,
             menu_name: "电视剧"
         },
         {
-            // menu_url: "movie",
-            // icon_name: "movie",
-            menu_url: "/home",
+            menu_url: "/movie",
             icon_name: movie,
             menu_name: "电影"
         },
         {
-            menu_url: "/home/variety",
+            menu_url: "/variety",
             icon_name: variety,
             menu_name: "综艺"
         },
         {
-            menu_url: "/home/cartoon",
+            menu_url: "/cartoon",
             icon_name: cartoon,
             menu_name: "动漫"
         },
         {
-            menu_url: "/home/child",
+            menu_url: "/child",
             icon_name: child,
             menu_name: "少儿"
         },
         {
-            menu_url: "/home/doco",
+            menu_url: "/doco",
             icon_name: doco,
             menu_name: "记录片"
         },
         {
-            menu_url: "/home/vip",
+            menu_url: "/vip",
             menu_name: "VIP会员"
         },
         {
-            menu_url: "/home/music",
+            menu_url: "/music",
             icon_name: music,
             menu_name: "音乐"
         },
         {
-            menu_url: "/home/sports",
+            menu_url: "/sports",
             menu_name: "体育"
         }
     ],

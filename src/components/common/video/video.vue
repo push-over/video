@@ -1,5 +1,6 @@
 <template>
   <video-player
+    style="object-fit: cover;"
     class="video-player vjs-custom-skin"
     ref="videoPlayer"
     :options="playerOptions"
@@ -27,8 +28,7 @@ export default {
         sources: [
           {
             type: "video/mp4",
-            src:
-              "https://mat1.gtimg.com/v/fayemeng/aquaman.mp4"
+            src: "https://mat1.gtimg.com/v/fayemeng/aquaman.mp4"
           }
         ],
         poster: defaultImg1,
@@ -70,6 +70,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
 </style>
 
